@@ -90,9 +90,10 @@ public class UserService : IUserService
         var user = GetById(id);
 
         // Validate
-        if (_userRepository.ExistsByMail(request.Mail)) 
-            throw new AppException("Username '" + request.Mail + "' is already taken");
-
+        if(user.Mail != request.Mail){
+            if (_userRepository.ExistsByMail(request.Mail) )
+                throw new AppException("Username '" + request.Mail + "' is already taken");
+        }
         // Hash password if it was entered
         if (!string.IsNullOrEmpty(request.Password))
             user.PasswordHash = BCryptNet.HashPassword(request.Password);
