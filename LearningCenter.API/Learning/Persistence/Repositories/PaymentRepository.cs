@@ -33,5 +33,11 @@ public class PaymentRepository : BaseRepository, IPaymentRepository
             .Include(p => p.User)
             .ToListAsync();
     }
+
+     public void Remove(Payment payment){
+          _context.Payments.Remove(payment);
+
+     }
+
    
 }

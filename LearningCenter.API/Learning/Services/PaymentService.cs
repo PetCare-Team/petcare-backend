@@ -60,4 +60,24 @@ public class PaymentService : IPaymentService
             return new PaymentResponse($"An error occurred while saving the payment: {e.Message}");
         }
     }
+    
+            public async Task<PaymentResponse> DeleteAsync(int id)
+        {
+            var existingPayment = await _paymentRepository.FindByIdAsync(id);
+            if (existingPayment == null)
+                return new PaymentResponse("Payment not found.");
+
+            try
+            {
+                _paymentRepository.Remove(existingPayment);
+                await _unitOfWork.CompleteAsync();
+
+                return new PaymentResponse(existingPayment);
+            }
+            catch (Exception e)
+            {
+                return new PaymentResponse($"An error occurred while deleting the payment: {e.Message}");
+            }
+        }
+
 }

@@ -62,5 +62,25 @@ public class PaymentController : ControllerBase
         return Ok(paymentResource);
 
     }
+    
+    
+    
+    [HttpDelete("{id}")]
+    [SwaggerOperation(
+        Summary = "Delete a payment method",
+        Description = "Delete a payment method by its id"
+    )]
+    [ProducesResponseType(204)]
+    [ProducesResponseType(404)]
+    [ProducesResponseType(500)]
+    public async Task<IActionResult> DeleteAsync(int id)
+    {
+        var result = await _paymentService.DeleteAsync(id);
+        if (!result.Success)
+            return NotFound(result.Message);
+
+        return NoContent();
+    }
+
 
 }
