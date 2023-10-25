@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using LearningCenter.API.Learning.Domain.Models;
 using LearningCenter.API.Learning.Domain.Services;
+using LearningCenter.API.Learning.Domain.Services.Communication;
 using LearningCenter.API.Learning.Resources;
 using LearningCenter.API.Shared.Extensions;
 using Microsoft.AspNetCore.Mvc;
@@ -48,6 +49,7 @@ public class PetController : ControllerBase
         Summary = "See your pet",
         Description = "See a specified pet by its Id") 
     ]
+    [ProducesResponseType(typeof(PetResource), 200)]
     public async Task<IActionResult> GetById(int id)
     {
         var user = await _petService.FindPetByIdAsync(id);

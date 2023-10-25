@@ -1,4 +1,5 @@
 using LearningCenter.API.Learning.Domain.Models;
+using LearningCenter.API.Security.Domain.Models;
 using LearningCenter.API.Security.Resources;
 
 namespace LearningCenter.API.Learning.Resources;
@@ -13,5 +14,5 @@ public class PaymentResource
 
     public DateTime ExpiratedDay { get; set; }
     public int Cvv { get; set; }
-    public int UserId { get; set; }
+    public UserResource User { get; set; }
 }

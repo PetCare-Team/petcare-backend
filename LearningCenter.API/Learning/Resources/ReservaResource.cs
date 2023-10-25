@@ -9,6 +9,6 @@ public class ReservaResource
     public DateTime StartHour { get; set; }
     public DateTime EndHour { get; set; }
     public int EstadoId { get; set; }
-    public int ServiceProviderId { get; set; }
-    public int ClientPaymentId { get; set; }
+    public ServiceResource ServiceProvider { get; set; }
+    public PaymentResource ClientPayment { get; set; }
 }

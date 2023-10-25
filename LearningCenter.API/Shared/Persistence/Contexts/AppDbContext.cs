@@ -72,13 +72,12 @@ public class AppDbContext : DbContext
         builder.Entity<Payment>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
         builder.Entity<Payment>().Property(p => p.Number).IsRequired().HasMaxLength(16);
     
-        builder.Entity<Payment>().HasOne(p=>p.User).WithMany(p=>p.Payments);
+        builder.Entity<Payment>().HasOne(p=>p.User).WithMany(p=>p.Payments).HasForeignKey(p => p.UserId);
         
         // Relationships
-        builder.Entity<User>()
-            .HasOne(p => p.Service)
-            .WithOne(p => p.User);
-            // .HasForeignKey(p => p.);
+        builder.Entity<Service>()
+            .HasOne(p => p.User)
+            .WithOne(p => p.Service).HasForeignKey<Service>(p => p.UserId);
 
         // States
         builder.Entity<State>().ToTable("States");

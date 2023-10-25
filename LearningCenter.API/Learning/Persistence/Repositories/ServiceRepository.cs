@@ -16,7 +16,7 @@ public class ServiceRepository : IServiceRepository
 
     public async Task<IEnumerable<Service>> ListAsync()
     {
-        return await _context.Services.ToListAsync();
+        return await _context.Services.Include(p=>p.User).ToListAsync();
     }
 
     public async Task AddAsync(Service service)

@@ -1,4 +1,5 @@
 using LearningCenter.API.Learning.Domain.Models;
+using LearningCenter.API.Security.Domain.Models;
 using LearningCenter.API.Security.Resources;
 
 namespace LearningCenter.API.Learning.Resources;
@@ -19,5 +20,6 @@ public class ServiceResource
     
     public bool Cuidador { get; set; }
 
-    public int UserId { get; set; }
+
+    public UserResource User {get;set;}
 }

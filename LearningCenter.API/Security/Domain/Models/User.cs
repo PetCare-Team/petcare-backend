@@ -13,6 +13,7 @@ public class User
     public int Dni { get; set; }
     public int TypeUserId { get; set; }
     public TypeUser TypeUser { get; set; }
+
     public Service Service { get; set; }
 
     public IList<Payment> Payments { get; set; }= new List<Payment>();

@@ -17,7 +17,7 @@ public class ReservaRepository : IReservaRepository
 
     public async Task<IEnumerable<Reserva>> ListAsync()
     {
-        return await _context.Reservas.ToListAsync();
+        return await _context.Reservas.Include(p=>p.ClientPayment.User).Include(p=>p.ServiceProvider.User).ToListAsync();
     }
 
     public async Task AddAsync(Reserva reserva)
