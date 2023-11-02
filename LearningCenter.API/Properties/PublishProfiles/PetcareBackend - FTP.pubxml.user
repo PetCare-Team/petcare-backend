@@ -7,5 +7,8 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAVbbYrLf030KFy/ljgRVVGwAAAAACAAAAAAAQZgAAAAEAACAAAAAaWvLGKkX8RTVX3Z0lXbvvIkVs1E5imu/CW6HXXSq1HQAAAAAOgAAAAAIAACAAAAAbHmAPW4VH7lB3U8tfMLMLJP6B/pd7vWAiq/B/93Ru8oAAAAAw42dtDpoUEHor3G5o5FhKJatrfXAER1D5UGRT1aXZt6Jr1V07FUse3XtdvHXrK/+1v2Ib7eInEPv50S2Y4pyaeRnqkPhlMPuYCNmhsjCVOivc0vTmPxnEdJbdk2UnZufsaanJK6a6t4yWG+pFbg9v5vhDgZZ/2aeVI+oWWSGpX0AAAABjlebIRX9JfDwgOZgPowiC6vLlXfMfqnod2zPOjDNzn7zzQOjK5pvDK7gi8BnLnCfrHlpJic+FoBAQcKsZmSqv</EncryptedPassword>
+    <_PublishTargetUrl>ftps://waws-prod-blu-459.ftp.azurewebsites.windows.net/site/wwwroot</_PublishTargetUrl>
+    <History>False|2023-10-25T14:45:32.2684872Z;</History>
+    <LastFailureDetails />
   </PropertyGroup>
 </Project>

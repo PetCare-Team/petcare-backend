@@ -9,6 +9,8 @@ public interface IReservaService
     Task<ReservaResponse> SaveAsync(Reserva reserva);
     Task<ReservaResponse> UpdateAsync(int reservaId, Reserva reserva);
     Task<ReservaResponse> DeleteAsync(int reservaId);
+
+    Task<ReservaResponse> FindByIdAsync(int reservaId);
     Task<IEnumerable<Reserva>> FindByPaymentIdAsync(int paymentId);
     Task<IEnumerable<Reserva>> FindByServiceIdAsync(int serviceId);
 }

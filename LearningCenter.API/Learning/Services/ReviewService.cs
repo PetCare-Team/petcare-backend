@@ -42,6 +42,7 @@ public class ReviewService: IReviewService
             return new ReviewResponse("Review not found.");
 
         existingReview.Description = review.Description;
+        existingReview.Stars= review.Stars;
 
         try
         {

@@ -39,6 +39,27 @@ public class ReservaController : ControllerBase
         return resources;
     }
 
+     [HttpGet("{id}")]
+    [ProducesResponseType(typeof(ReservaResource), 200)]
+    [ProducesResponseType(500)]
+    [SwaggerOperation(
+        Summary = "Get Reserva by Id",
+        Description = "Get a Reserva by its Id",
+        OperationId = "GetReservaById",
+        Tags = new[] { "Reservas" }
+    )]
+    public async Task<IActionResult> GetByIdAsync(int id)
+    {
+        var result = await _reservaService.FindByIdAsync(id);
+
+        if (!result.Success)
+            return NotFound(result.Message);
+
+        var reservaResource = _mapper.Map<Reserva, ReservaResource>(result.Resource);
+        return Ok(reservaResource);
+    }
+
+
     [HttpPost]
     [ProducesResponseType(typeof(ReservaResource), 201)]
     [ProducesResponseType(typeof(List<string>), 400)]

@@ -2,6 +2,6 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <ActiveDebugProfile>https</ActiveDebugProfile>
-    <NameOfLastUsedPublishProfile>C:\Users\YANNIRA\Downloads\PetCare_Backend %281%29\PetCare_Backend\LearningCenter.API\Properties\PublishProfiles\PetcareBackend - Web Deploy.pubxml</NameOfLastUsedPublishProfile>
+    <NameOfLastUsedPublishProfile>C:\Users\marji\OneDrive\Escritorio\PETCARE-MOBILEAPP\petcare-backend\LearningCenter.API\Properties\PublishProfiles\PetcareBackend - Web Deploy2.pubxml</NameOfLastUsedPublishProfile>
   </PropertyGroup>
 </Project>

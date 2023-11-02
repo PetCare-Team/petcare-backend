@@ -4,7 +4,7 @@ namespace LearningCenter.API.Learning.Resources;
 
 public class ReservaResource
 {
-    public int ReservaId { get; set; }
+    public int Id { get; set; }
     public string Date { get; set; }
     public DateTime StartHour { get; set; }
     public DateTime EndHour { get; set; }

@@ -90,4 +90,13 @@ public class ReservaService: IReservaService
     {
         return await _reservaRepository.FindByServiceIdAsync(serviceId);
     }
+
+    public async Task<ReservaResponse> FindByIdAsync(int reservaId)
+    {
+        var existingReserva = await _reservaRepository.FindByIdAsync(reservaId);
+        if (existingReserva == null)
+            return new ReservaResponse("Reserva not found.");
+
+        return new ReservaResponse(existingReserva);
+    }
 }

@@ -27,17 +27,23 @@ public class ReservaRepository : IReservaRepository
 
     public async Task<Reserva> FindByIdAsync(int reservaId)
     {
-        return await _context.Reservas.FindAsync(reservaId);
-    }
+       return await _context.Reservas
+        .Include(r => r.ClientPayment)
+        .ThenInclude(cp => cp.User)
+        .Include(r => r.ServiceProvider)
+        .ThenInclude(sp => sp.User)
+        .FirstOrDefaultAsync(r => r.Id == reservaId);
+        
+     }
 
     public async Task<IEnumerable<Reserva>> FindByPaymentIdAsync(int paymentId)
     {
-        return await _context.Reservas.Where(r => r.ClientPaymentId == paymentId).ToListAsync();
+        return await _context.Reservas.Where(r => r.ClientPaymentId == paymentId).Include(p=>p.ClientPayment.User).Include(p=>p.ServiceProvider.User).ToListAsync();
     }
 
     public async Task<IEnumerable<Reserva>> FindByServiceIdAsync(int serviceId)
     {
-        return await _context.Reservas.Where(r => r.ServiceProviderId == serviceId).ToListAsync();
+        return await _context.Reservas.Where(r => r.ServiceProviderId == serviceId).Include(p=>p.ClientPayment.User).Include(p=>p.ServiceProvider.User).ToListAsync();
     }
 
     public void Update(Reserva reserva)
