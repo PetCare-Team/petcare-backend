@@ -1,3 +1,4 @@
+
 using LearningCenter.API.Learning.Domain.Models;
 using LearningCenter.API.Security.Domain.Models;
 using LearningCenter.API.Shared.Extensions;
@@ -32,7 +33,7 @@ public class AppDbContext : DbContext
         // Pets
         builder.Entity<Pet>().ToTable("Pets");
         builder.Entity<Pet>().HasKey(p => p.Id);
-        builder.Entity<Pet>().Property(p => p.Id).UseIdentityColumn();
+        builder.Entity<Pet>().Property(p => p.Id).ValueGeneratedOnAdd();
         builder.Entity<Pet>().Property(p => p.Name).IsRequired().HasMaxLength(20);
         builder.Entity<Pet>().Property(p => p.Description).IsRequired();
         builder.Entity<Pet>().Property(p => p.UserId).IsRequired();
@@ -88,7 +89,7 @@ public class AppDbContext : DbContext
         // Reviews
         builder.Entity<Review>().ToTable("Reviews");
         builder.Entity<Review>().HasKey(p => p.ReviewId);
-        builder.Entity<Review>().Property(p => p.ReviewId).IsRequired().UseIdentityColumn();
+        builder.Entity<Review>().Property(p => p.ReviewId).IsRequired().ValueGeneratedOnAdd();
         builder.Entity<Review>().Property(p => p.Description).IsRequired().HasMaxLength(255);
         builder.Entity<Review>().Property(p => p.Stars).IsRequired();
         builder.Entity<Review>().HasOne(p=>p.User).WithMany(p=>p.Review).HasForeignKey(p => p.UserId).OnDelete(DeleteBehavior.Restrict);;

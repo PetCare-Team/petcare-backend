@@ -26,7 +26,9 @@ public class ServiceRepository : IServiceRepository
 
     public async Task<Service> FindByIdAsync(int serviceId)
     {
-        return await _context.Services.FindAsync(serviceId);
+       return await _context.Services
+        .Include(r => r.User)
+        .FirstOrDefaultAsync(r => r.ServiceId == serviceId);
     }
 
     public async Task<IEnumerable<Service>> FindByUserIdAsync(int userId)

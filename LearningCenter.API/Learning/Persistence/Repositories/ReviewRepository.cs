@@ -16,7 +16,7 @@ public class ReviewRepository : IReviewRepository
 
     public async Task<IEnumerable<Review>> ListAsync()
     {
-        return await _context.Reviews.ToListAsync();
+        return await _context.Reviews.Include(r=>r.User).Include(r=>r.Service.User).ToListAsync();
     }
 
     public async Task AddAsync(Review review)
@@ -26,7 +26,9 @@ public class ReviewRepository : IReviewRepository
 
     public async Task<Review> FindByIdAsync(int reviewId)
     {
-        return await _context.Reviews.FindAsync(reviewId);
+         return await _context.Reviews
+        .Include(r => r.User)
+        .FirstOrDefaultAsync(r => r.ReviewId == reviewId);
     }
 
     public async Task<IEnumerable<Review>> FindByServiceIdAsync(int serviceId)
